@@ -85,7 +85,7 @@ public class ScoreScreen extends Activity {
 	}
 	
 	public void onDestroy() {
-		super.onStop();
+		super.onDestroy();
 	}
 
 	@Override
@@ -96,81 +96,97 @@ public class ScoreScreen extends Activity {
 	}
 	
 	public void touchdownScoreOne(View view) {
-		scoreTracker.add(6);
-		teamTracker.add("O");
-		scoreOne += 6;
-		tdOne++;
-		updateScoreOne(scoreOne);
+		if (!scoreTooHigh(scoreOne)) {
+			scoreTracker.add(6);
+			teamTracker.add("O");
+			scoreOne += 6;
+			tdOne++;
+			updateScoreOne(scoreOne);
+		}
 	}
 	
 	public void touchdownScoreTwo(View view) {
-		scoreTracker.add(6);
-		teamTracker.add("T");
-		scoreTwo += 6;
-		tdTwo++;
-		updateScoreTwo(scoreTwo);
+		if (!scoreTooHigh(scoreTwo)) {
+			scoreTracker.add(6);
+			teamTracker.add("T");
+			scoreTwo += 6;
+			tdTwo++;
+			updateScoreTwo(scoreTwo);
+		}
 	}
 	
 	public void fieldgoalScoreOne(View view) {
-		scoreTracker.add(3);
-		teamTracker.add("O");
-		scoreOne += 3;
-		fgOne++;
-		updateScoreOne(scoreOne);
+		if (!scoreTooHigh(scoreOne)) {
+			scoreTracker.add(3);
+			teamTracker.add("O");
+			scoreOne += 3;
+			fgOne++;
+			updateScoreOne(scoreOne);
+		}
 	}
 	
 	public void fieldgoalScoreTwo(View view) {
-		scoreTracker.add(3);
-		teamTracker.add("T");
-		scoreTwo += 3;
-		fgTwo++;
-		updateScoreTwo(scoreTwo);
+		if (!scoreTooHigh(scoreTwo)) {
+			scoreTracker.add(3);
+			teamTracker.add("T");
+			scoreTwo += 3;
+			fgTwo++;
+			updateScoreTwo(scoreTwo);
+		}
 	}
 	
 	public void extrapointScoreOne(View view) {
-		if ((scoreTracker.size() > 0) &&
-				(scoreTracker.get(scoreTracker.size()-1) == 6) && 
-					(teamTracker.get(scoreTracker.size() - 1).equals("O"))) {
-			scoreTracker.add(1);
-			teamTracker.add("O");
-			scoreOne += 1;
-			epOne++;
-			updateScoreOne(scoreOne);
-		} else {
-			String extraPointWarning = "Extra points can only be scored following a touchdown.";
-			Toast.makeText(getApplicationContext(), extraPointWarning, Toast.LENGTH_SHORT).show();
+		if (!scoreTooHigh(scoreOne)) {
+			if ((scoreTracker.size() > 0) &&
+					(scoreTracker.get(scoreTracker.size()-1) == 6) && 
+						(teamTracker.get(scoreTracker.size() - 1).equals("O"))) {
+				scoreTracker.add(1);
+				teamTracker.add("O");
+				scoreOne += 1;
+				epOne++;
+				updateScoreOne(scoreOne);
+			} else {
+				String extraPointWarning = "Extra points can only be scored following a touchdown.";
+				Toast.makeText(getApplicationContext(), extraPointWarning, Toast.LENGTH_SHORT).show();
+			}
 		}
 	}
 	
 	public void extrapointScoreTwo(View view) {
-		if ((scoreTracker.size() > 0) &&
-				(scoreTracker.get(scoreTracker.size()-1) == 6) && 
-					(teamTracker.get(scoreTracker.size() - 1).equals("T"))) {
-			scoreTracker.add(1);
-			teamTracker.add("T");
-			scoreTwo += 1;
-			epTwo++;
-			updateScoreTwo(scoreTwo);
-		} else {
-			String extraPointWarning = "Extra points can only be scored following a touchdown.";
-			Toast.makeText(getApplicationContext(), extraPointWarning, Toast.LENGTH_SHORT).show();
+			if (!scoreTooHigh(scoreTwo)) {
+			if ((scoreTracker.size() > 0) &&
+					(scoreTracker.get(scoreTracker.size()-1) == 6) && 
+						(teamTracker.get(scoreTracker.size() - 1).equals("T"))) {
+				scoreTracker.add(1);
+				teamTracker.add("T");
+				scoreTwo += 1;
+				epTwo++;
+				updateScoreTwo(scoreTwo);
+			} else {
+				String extraPointWarning = "Extra points can only be scored following a touchdown.";
+				Toast.makeText(getApplicationContext(), extraPointWarning, Toast.LENGTH_SHORT).show();
+			}
 		}
 	}
 	
 	public void twoPointsScoreOne(View view) {
-		scoreTracker.add(2);
-		teamTracker.add("O");
-		scoreOne += 2;
-		scOne++;
-		updateScoreOne(scoreOne);
+		if (!scoreTooHigh(scoreOne)) {
+			scoreTracker.add(2);
+			teamTracker.add("O");
+			scoreOne += 2;
+			scOne++;
+			updateScoreOne(scoreOne);
+		}
 	}
 	
 	public void twoPointsScoreTwo(View view) {
-		scoreTracker.add(2);
-		teamTracker.add("T");
-		scoreTwo += 2;
-		scTwo++;
-		updateScoreTwo(scoreTwo);
+		if (!scoreTooHigh(scoreTwo)) {
+			scoreTracker.add(2);
+			teamTracker.add("T");
+			scoreTwo += 2;
+			scTwo++;
+			updateScoreTwo(scoreTwo);
+		}
 	}
 	
 	public void undoScore(View view) {
@@ -186,10 +202,7 @@ public class ScoreScreen extends Activity {
 		} else if ( undoTeam.equals("T") ){
 			scoreTwo -= undoInt;
 			updateScoreTwo(scoreTwo);
-		} else {
-			//TODO
-		}
-		
+		}		
 	}
 	
 	public void updateScoreOne(int scoreUpdate) {
@@ -239,5 +252,19 @@ public class ScoreScreen extends Activity {
 		intent.putExtra("scOne", scOne);
 		intent.putExtra("scTwo", scTwo);
 		startActivity(intent);
+		initializeVariables();
+		updateScoreOne(scoreOne);
+		updateScoreTwo(scoreTwo);
+		nameOne.setHint("Team One");
+		nameTwo.setHint("Team Two");
+	}
+	
+	public boolean scoreTooHigh(int score) {
+		if ( score >= 50 ) {
+			String pointsTooHighWarning = "Cannot add any additional points.";
+			Toast.makeText(getApplicationContext(), pointsTooHighWarning, Toast.LENGTH_SHORT).show();
+			return true;
+		} else 
+			return false;
 	}
 }

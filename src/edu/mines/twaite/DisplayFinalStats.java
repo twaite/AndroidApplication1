@@ -70,7 +70,7 @@ public class DisplayFinalStats extends Activity {
         
         int fieldGoalTwo = intent.getIntExtra("fgTwo", 0);
         TextView fieldGoalDisplayTwo = (TextView) findViewById(R.id.fieldGoalTwo);
-        fieldGoalDisplayTwo.setText("Extra points scored: " + Integer.toString(fieldGoalTwo));
+        fieldGoalDisplayTwo.setText("Field goals scored: " + Integer.toString(fieldGoalTwo));
         
       //Display the number of safeties and conversions
         int safetyConversionsOne = intent.getIntExtra("scOne", 0);
@@ -111,6 +111,10 @@ public class DisplayFinalStats extends Activity {
     }
     
     public void newGame(View view) {
-    	super.onBackPressed();
+    	super.finish();
+    }
+    
+    public void onBackPressed() {
+    	
     }
 }
