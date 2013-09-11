@@ -62,6 +62,8 @@ public class ScoreScreen extends Activity {
 		fgTwo = savedInstanceState.getInt("fgTwo");
 		scOne = savedInstanceState.getInt("csOne");
 		scTwo = savedInstanceState.getInt("csTwo");
+		scoreTracker = savedInstanceState.getIntegerArrayList("scoreTracker");
+		teamTracker = savedInstanceState.getStringArrayList("teamTracker");
 		updateScoreOne(scoreOne);
 		updateScoreTwo(scoreTwo);
 		EditText nameOne = (EditText) findViewById(R.id.teamNameOne);
@@ -225,6 +227,10 @@ public class ScoreScreen extends Activity {
 		String nameTwoStr = nameTwo.getText().toString();
 		intent.putExtra("teamOne", nameOneStr);
 		intent.putExtra("teamTwo", nameTwoStr);
+		//Pass the scores to DisplayFinalStats
+		intent.putExtra("scoreOne", scoreOne);
+		intent.putExtra("scoreTwo", scoreTwo);
+		intent.putExtra("tdOne", tdOne);
 		startActivity(intent);
 	}
 }

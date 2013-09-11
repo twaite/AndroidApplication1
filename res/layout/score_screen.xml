@@ -11,7 +11,7 @@
         >
         
         <EditText
-            android:textSize="24dp"
+            android:textSize="24sp"
             android:id="@+id/teamNameOne"
             android:layout_weight="1"
             android:hint="@string/team_one"
@@ -20,7 +20,7 @@
 	    	android:layout_height="fill_parent" />
         
         <EditText
-            android:textSize="24dp"
+            android:textSize="24sp"
             android:id="@+id/teamNameTwo"
             android:layout_weight="1"
             android:hint="@string/team_two"
@@ -37,7 +37,7 @@
         >
         
         <TextView
-            android:textSize="24dp"
+            android:textSize="24sp"
             android:id="@+id/scoreOne"
           	android:layout_weight="1"
           	android:gravity="center"
@@ -45,7 +45,7 @@
             android:layout_height="fill_parent" />
         
         <TextView
-            android:textSize="24dp"
+            android:textSize="24sp"
             android:id="@+id/scoreTwo"
             android:layout_weight="1"
             android:gravity="center"

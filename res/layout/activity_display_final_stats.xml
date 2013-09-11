@@ -11,6 +11,20 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content" />
     
+    <TextView 
+        android:layout_weight="1"
+        android:id="@+id/scoreOneFinal"
+        android:gravity="left"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"/>
+    
+    <TextView
+        android:layout_weight="1"
+        android:id="@+id/touchdowns"
+        android:gravity="left"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"/>
+    
     <TextView
         android:layout_weight="1"
         android:id="@+id/teamTwoGO"
@@ -18,6 +32,13 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content" />
     
+	 <TextView 
+        android:layout_weight="1"
+        android:id="@+id/scoreTwoFinal"
+        android:gravity="left"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"/>
+       
     <Button
         android:layout_weight="1"
         android:id="@+id/newGame"
