@@ -1,10 +1,18 @@
+/**
+* Description: This class implements the second activity for this application.
+* It will display the team names and scores from the previous activity and 
+* determine a winner based on the score. It also allows a user to start a new
+* game.
+*
+* @author Timothy Waite
+*/
+
 package edu.mines.twaite;
 
 import android.os.Build;
 import android.os.Bundle;
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.support.v4.app.NavUtils;
 import android.view.MenuItem;
@@ -12,7 +20,15 @@ import android.view.View;
 import android.widget.TextView;
 
 public class DisplayFinalStats extends Activity {
-
+	
+	/**
+	* This method creates the initial view based on the xml file. It will also
+	* initialize all the variables to zero. It also loads all the variables from
+	* the intent so that the screen can be generated with all of the necessary
+	* statistics.
+	* 
+	* @param savedInstanceState This preserves the instance variables.
+	*/
     @SuppressLint("NewApi")
 	@Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,7 +103,13 @@ public class DisplayFinalStats extends Activity {
             getActionBar().setDisplayHomeAsUpEnabled(true);
         }
     }
-
+    
+    /**
+	* This method creates the options menu.
+	* 
+	* @param menu The options menu to create
+	* @return Returns true if the menu is created.
+	*/
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -98,6 +120,15 @@ public class DisplayFinalStats extends Activity {
         return super.onOptionsItemSelected(item);
     }
     
+    /**
+     * This method will determine whether the team won, lost, or tied and update
+     * the string accordingly.
+     * 
+     * @param name This is the team name
+     * @param score This is the team's score
+     * @param otherScore This is the opposing team's score
+     * @return Returns the updated string according to win, loss or tie.
+     */
     public String addWinLossToString(String name, int score, int otherScore) {
     	if ( score > otherScore ) {
     		return name + " Won!";
@@ -110,10 +141,22 @@ public class DisplayFinalStats extends Activity {
     	}
     }
     
+    /**
+     * This function will close out the DisplayFinalStats activity and return to the original
+     * activity. Because the original activity has been reinitialized it gives the appearance
+     * of beginning a new game.
+     * 
+     * @param view This loads the view so that the button can execute the function onClick
+     */
     public void newGame(View view) {
     	super.finish();
     }
     
+    /**
+     * This overrides the parent function onBackPressed so that the user cannot go back to the
+     * main activity without selecting new game.
+     * 
+     */
     public void onBackPressed() {
     	
     }
