@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tableLayout1"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+    
+    <TableRow
+        android:id="@+id/tableRow1"
+      	android:layout_weight="1"
+      	android:gravity="center"
+        >
+        
+        <EditText
+            android:textSize="24dp"
+            android:id="@+id/teamNameOne"
+            android:layout_weight="1"
+            android:hint="@string/team_one"
+            android:gravity="center"
+	    	android:layout_width="fill_parent"
+	    	android:layout_height="fill_parent" />
+        
+        <EditText
+            android:textSize="24dp"
+            android:id="@+id/teamNameTwo"
+            android:layout_weight="1"
+            android:hint="@string/team_two"
+            android:gravity="center"
+	    	android:layout_width="fill_parent"
+	    	android:layout_height="fill_parent" />
+        
+    </TableRow>
+    
+    <TableRow
+        android:id="@+id/tableRow2"
+        android:layout_weight="1"
+        android:gravity="center"
+        >
+        
+        <TextView
+            android:textSize="24dp"
+            android:id="@+id/scoreOne"
+          	android:layout_weight="1"
+          	android:gravity="center"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" />
+        
+        <TextView
+            android:textSize="24dp"
+            android:id="@+id/scoreTwo"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" />
+        
+    </TableRow>
+    
+    <TableRow
+        android:id="@+id/tableRow3"
+        android:layout_weight="1"
+        android:gravity="center"
+        >
+        
+        <Button
+            android:id="@+id/touchdownOne"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/touchdown"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" 
+            android:onClick="touchdownScoreOne"/>
+        
+        <Button
+            android:id="@+id/touchdownTwo"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/touchdown"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:onClick="touchdownScoreTwo" />
+        
+    </TableRow>
+    
+        <TableRow
+        android:id="@+id/tableRow4"
+        android:layout_weight="1"
+        android:gravity="center"
+        >
+        
+        <Button
+            android:id="@+id/extraPointOne"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/extra_point"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:onClick="extrapointScoreOne" />
+        
+        <Button
+            android:id="@+id/extraPointTwo"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/extra_point"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:onClick="extrapointScoreTwo" />
+        
+    </TableRow>
+    
+    
+	<TableRow
+        android:id="@+id/tableRow5"
+        android:layout_weight="1"
+        android:gravity="center"
+        >
+        
+        <Button
+            android:id="@+id/fieldGoalOne"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/field_goal"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:onClick="fieldgoalScoreOne" />
+        
+        <Button
+            android:id="@+id/fieldGoalTwo"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/field_goal"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:onClick="fieldgoalScoreTwo" />
+        
+    </TableRow>
+    
+	<TableRow
+        android:id="@+id/tableRow6"
+        android:layout_weight="1"
+        android:gravity="center"
+        >
+        
+        <Button
+            android:id="@+id/safetyOne"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/safety"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:onClick="twoPointsScoreOne" />
+        
+        <Button
+            android:id="@+id/safetyTwo"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/safety"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:onClick="twoPointsScoreTwo" />
+        
+    </TableRow>
+    
+	<TableRow
+        android:id="@+id/tableRow7"
+        android:layout_weight="1"
+        android:gravity="center"
+        >
+        
+        <Button
+            android:id="@+id/undo"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/undo"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:onClick="undoScore" />
+        
+        <Button
+            android:id="@+id/endGame"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/end_game"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:onClick="endGame" />
+        
+    </TableRow>
+    
+</TableLayout>
