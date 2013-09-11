@@ -231,6 +231,13 @@ public class ScoreScreen extends Activity {
 		intent.putExtra("scoreOne", scoreOne);
 		intent.putExtra("scoreTwo", scoreTwo);
 		intent.putExtra("tdOne", tdOne);
+		intent.putExtra("tdTwo", tdTwo);
+		intent.putExtra("epOne", epOne);
+		intent.putExtra("epTwo", epTwo);
+		intent.putExtra("fgOne", fgOne);
+		intent.putExtra("fgTwo", fgTwo);
+		intent.putExtra("scOne", scOne);
+		intent.putExtra("scTwo", scTwo);
 		startActivity(intent);
 	}
 }
